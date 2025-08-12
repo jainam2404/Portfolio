@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Jainam Sathwara</title>
+    <link rel="icon" href="./images/JS_Logo-removebg-preview.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        background-color: black;
+        width: 100%;
+        height: 100px;
+        display: flex;
+      }
+      .nav-left {
+        border: 2px solid black;
+        width: 50%;
+      }
+      .nav-left img {
+        width: 100px;
+        height: 100%;
+        cursor: pointer;
+      }
+      .nav-right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      }
+      .nav-right ul {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        align-self: center;
+      }
+      .nav-right a {
+        position: relative;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .nav-right a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 0%;
+        background: red;
+        transition: width 3s;
+      }
+      .nav-right a:hover {
+        color: red;
+      }
+
+      .nav-right a:hover::after {
+        width: 100%;
+      }
+      .nav-right a:hover {
+        animation: focus-in-expand 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        color: #d61305;
+      }
+      @keyframes focus-in-expand {
+        0% {
+          filter: blur(12px);
+          opacity: 0;
+        }
+        100% {
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+
+      .section-1 {
+        background-color: #232323;
+        display: flex;
+        width: 100%;
+        height: 900px;
+      }
+      .section-1-left {
+        width: 20%;
+        height: 130vh;
+      }
+      .profile-card {
+        background-color: #232323;
+        border-radius: 10px;
+        width: 350px;
+        padding: 20px;
+        text-align: center;
+      }
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+        background: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .profile-img img {
+        width: 100%;
+        height: auto;
+      }
+      h2 {
+        color: white;
+        margin: 15px 0 5px;
+      }
+      .role {
+        background: #333;
+        color: white;
+        font-weight: bold;
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .info-01 {
+        color: white;
+        margin-top: 20px;
+        text-align: left;
+      }
+      .info-01 div {
+        margin-bottom: 15px;
+        padding: 20px;
+      }
+      .info-01 i {
+        color: red;
+        margin-right: 10px;
+      }
+      .info-01 span {
+        font-size: 15px;
+        color: gray;
+      }
+      .info-01 p {
+        padding-left: 30px;
+        font-size: 15px;
+      }
+      .section-1-right {
+        width: 80%;
+        height: 130vh;
+      }
+      .section-1-right h1 {
+        color: white;
+        font-weight: bold;
+        border: 10px solid red;
+        border-bottom-right-radius: 100px;
+        border-top: none;
+        width: 220px;
+        background-color: red;
+      }
+      .info {
+        width: 100%;
+        height: 130vh;
+        display: flex;
+      }
+      .info-left {
+        border-right: 2px solid gray;
+        margin-top: 30px;
+        width: 50%;
+        height: 100vh;
+        color: white;
+      }
+      .box {
+        width: 100%;
+        height: 50vh;
+      }
+      .box p {
+        text-align: justify;
+        padding-top: 20px;
+        margin: 50px;
+        margin-top: 0px;
+      }
+      .box ul {
+        padding-left: 110px;
+      }
+      .names {
+        font-weight: bold;
+        font-size: 30px;
+        margin-left: 10px;
+      }
+      .info-right {
+        width: 50%;
+        height: 100vh;
+        margin-top: 30px;
+        color: white;
+      }
+      .box span i {
+        margin-left: 30px;
+      }
+      footer {
+        background-color: black;
+        display: flex;
+        width: 100%;
+      }
+      .contact {
+        width: 70%;
+        height: 400px;
+        align-content: center;
+        color: white;
+        padding: 20px;
+      }
+      .contact h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 60px;
+        padding-bottom: 20px;
+      }
+      .contact p {
+        color: #bbbcb7;
+      }
+      .btn {
+        width: 30%;
+        align-content: center;
+      }
+      .btn > button {
+        background-color: red;
+        align-items: center;
+        color: white;
+        width: 120px;
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        margin-top: 20px;
+        font-weight: bold;
+        align-content: center;
+        animation: color-change 2s linear infinite alternate both;
+      }
+
+      @keyframes color-change {
+        from {
+          background-color: red;
+          color: white;
+        }
+        to {
+          background-color: rgb(237, 151, 4);
+          color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-left">
+        <img src="./images/JS_Logo-removebg-preview.png" alt="" />
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#">RESUME</a></li>
+          <li><a href="about.html">ABOUT ME</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </header>
+    <section class="section-1">
+      <div class="profile-card">
+        <div class="profile-img">
+          <img
+            src="./images/Passport_size_photo_Jainam.png"
+            alt="Profile Photo"
+          />
+        </div>
+        <h2>Jainam Sathwara</h2>
+        <div class="role">Frontend Developer</div>
+
+        <div class="info-01">
+          <div>
+            <i class="fa-solid fa-envelope fa-lg"></i>
+            <span>E-MAIL</span>
+            <p>jainamsathwara04@gmail.com</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-phone fa-lg"></i>
+            <span>PHONE</span>
+            <p>8140565524</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-location-dot fa-lg"></i>
+            <span>ADDRESS</span>
+            <p>Gujarat,Ahmedabad</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-1-right">
+        <h1>RESUME</h1>
+        <div class="info">
+          <div class="info-left">
+            <div class="box">
+              <span>
+                <i class="fa-solid fa-user fa-2xl" style="color: #ff0000"></i
+              ></span>
+              <span class="names">Profile</span>
+              <p>
+                A Highly Motivated and details-oriented junior front-end
+                developer with a passion for creating innovative and visually
+                appealing web application. Proficient in HTML,CSS,JavaScript and
+                React with experience in developing responsive and user-friendly
+                websites. Strong problem-solving skills and a desire to learn
+                and grow in a dynamic and fast-paced enviroment.A collaboration
+                team player with good communication skills and a commitent to
+                delivering high-quality work.
+              </p>
+            </div>
+            <div class="box">
+              <span>
+                <i class="fa-solid fa-book fa-2xl" style="color: #ff0000"></i
+              ></span>
+              <span class="names">Education</span>
+              <ul>
+                <li>1Oth SSC Board</li>
+                <span>March 2019</span>
+                <li>12th HSC Board</li>
+                <span>March 2021</span>
+                <li>Bachelor of Computer Applications</li>
+                <span>May 2021-2024</span>
+              </ul>
+            </div>
+          </div>
+          <div class="info-right">
+            <div class="box">
+              <span>
+                <i
+                  class="fa-solid fa-language fa-2xl"
+                  style="color: #ff0000"
+                ></i
+              ></span>
+              <span class="names">Languages</span>
+              <ul>
+                <li>English</li>
+                <li>Hindi</li>
+                <li>Gujarati</li>
+              </ul>
+              <span>
+                <i class="fa-solid fa-brain fa-2xl" style="color: #ff0000"></i
+              ></span>
+              <span class="names">Soft Skills</span>
+              <ul>
+                <li>Communication Skills</li>
+                <li>Attention to detail</li>
+                <li>Teamwork</li>
+                <li>Problem Solving Skills</li>
+                <li>Adaptability</li>
+              </ul>
+            </div>
+            <div class="box">
+              <span>
+                <i class="fa-solid fa-code fa-2xl" style="color: #ff0000"></i
+              ></span>
+              <span class="names">Technical Skills</span>
+              <ul>
+                <li>Knowledge of HTML and CSS</li>
+                <li>Familiarity with CSS preprocessors</li>
+                <li>Understanding of web development Frame Works (React.js)</li>
+                <li>Problem Solving Skills</li>
+              </ul>
+
+              <span>
+                <i class="fa-brands fa-github fa-2xl" style="color: #ff0000"></i
+              ></span>
+              <span class="names">GitHub</span>
+              <ul>
+                <li>
+                  <a
+                    style="text-decoration: none; color: white"
+                    href="https://github.com/jainam2404"
+                    target="_blank"
+                    >https://github.com/jainam2404</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="contact" id="contact">
+        <h1>Lets work together on your next project</h1>
+        <p>
+          Collaoration is key! Lets join forces and combine our skills to tackle
+          your next project with a powerful synergy that guarantees success.
+        </p>
+      </div>
+      <div class="btn">
+        <button>Contact</button>
+      </div>
+    </footer>
+  </body>
+</html>

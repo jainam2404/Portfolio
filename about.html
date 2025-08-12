@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Jainam Sathwara</title>
+    <link rel="icon" href="./images/JS_Logo-removebg-preview.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      header {
+        background-color: black;
+        width: 100%;
+        height: 100px;
+        display: flex;
+      }
+      .nav-left {
+        width: 50%;
+      }
+      .nav-left img {
+        width: 100px;
+        height: 100%;
+        cursor: pointer;
+      }
+      .nav-right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      }
+      .nav-right ul {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        align-self: center;
+      }
+      .nav-right a {
+        position: relative;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .nav-right a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 0%;
+        background: red;
+        transition: width 3s;
+      }
+      .nav-right a:hover {
+        color: red;
+      }
+
+      .nav-right a:hover::after {
+        width: 100%;
+      }
+      .nav-right a:hover {
+        animation: focus-in-expand 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        color: #d61305;
+      }
+      @keyframes focus-in-expand {
+        0% {
+          filter: blur(12px);
+          opacity: 0;
+        }
+        100% {
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+
+      .form-contain {
+        background-color: black;
+        width: 100%;
+
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      input,
+      textarea {
+        padding: 12px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+        width: 500px;
+      }
+
+      button {
+        width: 500px;
+        padding: 12px;
+        margin-top: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: darkred;
+      }
+      footer {
+        background-color: black;
+        display: flex;
+        width: 100%;
+      }
+      .contact {
+        width: 70%;
+        height: 400px;
+        align-content: center;
+        color: white;
+        padding: 20px;
+      }
+      .contact h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 60px;
+        padding-bottom: 20px;
+      }
+      .contact p {
+        color: #bbbcb7;
+      }
+      .btn {
+        width: 30%;
+        align-content: center;
+      }
+      .btn > button {
+        background-color: red;
+        align-items: center;
+        color: white;
+        width: 120px;
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        margin-top: 20px;
+        font-weight: bold;
+        align-content: center;
+        animation: color-change 2s linear infinite alternate both;
+      }
+
+      @keyframes color-change {
+        from {
+          background-color: red;
+          color: white;
+        }
+        to {
+          background-color: rgb(237, 151, 4);
+          color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-left">
+        <img src="./images/JS_Logo-removebg-preview.png" alt="Logo" />
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="resume.html">RESUME</a></li>
+          <li><a href="about.html">ABOUT ME</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="form-contain">
+      <h1>I'd love to hear from you!!</h1>
+      <form>
+        <input type="text" placeholder="First Name" required />
+        <input type="text" placeholder="Last Name" required />
+        <input type="email" placeholder="E-Mail" required />
+        <textarea placeholder="Message..." required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <footer>
+      <div class="contact" id="contact">
+        <h1>Lets work together on your next project</h1>
+        <p>
+          Collaoration is key! Lets join forces and combine our skills to tackle
+          your next project with a powerful synergy that guarantees success.
+        </p>
+      </div>
+      <div class="btn">
+        <button>Contact</button>
+      </div>
+    </footer>
+  </body>
+</html>

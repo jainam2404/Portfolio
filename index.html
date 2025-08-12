@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Jainam Sathwara</title>
+    <link rel="icon" href="./images/JS_Logo-removebg-preview.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        background-color: black;
+        width: 100%;
+        height: 100px;
+        display: flex;
+      }
+      .nav-left {
+        width: 50%;
+      }
+      .nav-left img {
+        width: 100px;
+        height: 100%;
+        cursor: pointer;
+      }
+      .nav-right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      }
+      .nav-right ul {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        align-self: center;
+      }
+      .nav-right a {
+        position: relative;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .nav-right a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 0%;
+        background: red;
+        transition: width 3s;
+      }
+      .nav-right a:hover {
+        color: red;
+      }
+
+      .nav-right a:hover::after {
+        width: 100%;
+      }
+      .nav-right a:hover {
+        animation: focus-in-expand 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        color: #d61305;
+      }
+      @keyframes focus-in-expand {
+        0% {
+          filter: blur(12px);
+          opacity: 0;
+        }
+        100% {
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+
+      .sec-1 {
+        background-color: black;
+        width: 100%;
+        height: 500px;
+        display: flex;
+      }
+      .contain-1 {
+        color: white;
+        width: 50%;
+        height: 100%;
+        align-content: center;
+        padding: 15px;
+      }
+
+      .hello {
+        font-size: xx-large;
+        color: #b92e34;
+        font-weight: bold;
+      }
+      .contain-1 h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+        color: #fff;
+        font-family: monospace;
+        overflow: hidden;
+        border-right: 2px solid orange;
+        white-space: nowrap;
+        margin: 0 auto;
+        animation: typing 5s steps(30, end) infinite alternate both;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .contain-1 button {
+        background-color: red;
+        color: white;
+        width: 130px;
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        margin-top: 20px;
+        font-weight: bold;
+        animation: color-change 2s linear infinite alternate both;
+      }
+      .contain-2 {
+        display: flex;
+        width: 50%;
+        height: 100%;
+        justify-content: center;
+      }
+      .card-item {
+        width: 50%;
+        height: 400px;
+        background: linear-gradient(
+          307deg,
+          rgba(61, 12, 2, 1),
+          rgba(185, 46, 52, 1)
+        );
+      }
+      .card-item img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .sec-2 {
+        background-color: #232323;
+        width: 100%;
+        height: 700px;
+        display: flex;
+      }
+      .contain-sec-2-left {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: center;
+      }
+      .contain-sec-2-right {
+        background-color: #232323;
+        width: 50%;
+        height: 100%;
+        align-content: center;
+        padding: 15px;
+        color: white;
+      }
+
+      .about {
+        font-size: 25px;
+        color: white;
+        font-weight: bold;
+      }
+      .box {
+        width: 100%;
+        height: 120px;
+        background-color: black;
+        padding: 10px;
+      }
+      .box button {
+        cursor: pointer;
+        width: 200px;
+        height: 30px;
+        margin-top: 10px;
+        border-radius: 5px;
+        background-color: #232323;
+        color: white;
+        border: none;
+        font-weight: bold;
+      }
+
+      .ani:hover {
+        -webkit-animation: focus-in-contract-bck 1s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: focus-in-contract-bck 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          both;
+      }
+      @-webkit-keyframes focus-in-contract-bck {
+        0% {
+          letter-spacing: 1em;
+          -webkit-transform: translateZ(300px);
+          transform: translateZ(300px);
+          -webkit-filter: blur(12px);
+          filter: blur(12px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateZ(12px);
+          transform: translateZ(12px);
+          -webkit-filter: blur(0);
+          filter: blur(0);
+          opacity: 1;
+        }
+      }
+      @keyframes focus-in-contract-bck {
+        0% {
+          letter-spacing: 10px;
+          -webkit-transform: translateZ(300px);
+          transform: translateZ(300px);
+          -webkit-filter: blur(12px);
+          filter: blur(12px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateZ(12px);
+          transform: translateZ(12px);
+          -webkit-filter: blur(0);
+          filter: blur(0);
+          opacity: 1;
+        }
+      }
+
+      .download {
+        cursor: pointer;
+        margin: 5px;
+        background-color: red;
+        color: white;
+        height: 40px;
+        border: none;
+        width: 200px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      
+
+      .sec-3 {
+        padding: 20px;
+        width: 100%;
+        height: 610px;
+        background-color: black;
+        color: white;
+      }
+      .sec-3 h1 {
+        font-weight: bold;
+        color: white;
+      }
+      .box-01 {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        width: 100%;
+        height: 500px;
+      }
+      .box-01 > div {
+        background-color: #232323;
+        width: 400px;
+        height: 200px;
+        align-content: center;
+        margin-top: 20px;
+        text-align: center;
+        color: white;
+        border-radius: 15px;
+        padding: 20px;
+      }
+      .box-01 > div:hover {
+        cursor: pointer;
+        animation: myAnim 2s ease 0s 1 normal forwards;
+      }
+      @keyframes myAnim {
+        0% {
+          animation-timing-function: ease-in;
+          opacity: 1;
+          transform: translateY(-45px);
+        }
+
+        24% {
+          opacity: 1;
+        }
+
+        40% {
+          animation-timing-function: ease-in;
+          transform: translateY(-24px);
+        }
+
+        65% {
+          animation-timing-function: ease-in;
+          transform: translateY(-12px);
+        }
+
+        82% {
+          animation-timing-function: ease-in;
+          transform: translateY(-6px);
+        }
+
+        93% {
+          animation-timing-function: ease-in;
+          transform: translateY(-4px);
+        }
+
+        25%,
+        55%,
+        75%,
+        87% {
+          animation-timing-function: ease-out;
+          transform: translateY(0px);
+        }
+
+        100% {
+          animation-timing-function: ease-out;
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+
+      footer {
+        background-color: black;
+        display: flex;
+        width: 100%;
+      }
+      .contact {
+        width: 70%;
+        height: 400px;
+        align-content: center;
+        color: white;
+        padding: 20px;
+      }
+      .contact h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 60px;
+        padding-bottom: 20px;
+      }
+      .contact p {
+        color: #bbbcb7;
+      }
+      .btn {
+        width: 30%;
+        align-content: center;
+      }
+      .btn > button {
+        background-color: red;
+        align-items: center;
+        color: white;
+        width: 120px;
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        margin-top: 20px;
+        font-weight: bold;
+        align-content: center;
+        animation: color-change 2s linear infinite alternate both;
+      }
+
+      @keyframes color-change {
+        from {
+          background-color: red;
+          color: white;
+        }
+        to {
+          background-color: rgb(237, 151, 4);
+          color: black;
+        }
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      @media (max-width: 992px) {
+        header {
+          flex-direction: column;
+          height: auto;
+          text-align: center;
+        }
+        .nav-left,
+        .nav-right {
+          width: 100%;
+        }
+        .nav-right ul {
+          gap: 20px;
+          flex-wrap: wrap;
+          padding: 10px 0;
+        }
+        .sec-1,
+        .sec-2 {
+          flex-direction: column;
+          height: auto;
+        }
+        .contain-1,
+        .contain-2,
+        .contain-sec-2-left,
+        .contain-sec-2-right {
+          width: 100%;
+          text-align: center;
+        }
+        .card-item {
+          width: 80%;
+          margin: 0 auto;
+          height: auto;
+        }
+        .contain-1 h1 {
+          font-size: 32px;
+        }
+        .box {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          height: auto;
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .box-01 {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+        .box-01 > div {
+          width: 100%;
+          height: auto;
+          padding: 15px;
+        }
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+        .contact,
+        .btn {
+          width: 100%;
+        }
+        .btn > button {
+          margin: 20px auto;
+          display: block;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .nav-right ul {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .contain-1 h1 {
+          font-size: 24px;
+        }
+        .hello {
+          font-size: 18px;
+        }
+        .sec-3 {
+          padding: 10px;
+        }
+        .box-01 {
+          grid-template-columns: 1fr;
+        }
+        .card-item {
+          width: 100%;
+        }
+        .download {
+          width: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-left">
+        <img src="./images/JS_Logo-removebg-preview.png" alt="" />
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="resume.html">RESUME</a></li>
+          <li><a href="about.html">ABOUT ME</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </header>
+    <section class="sec-1">
+      <div class="contain-1">
+        <p class="hello">Hello, My Name Is</p>
+        <h1>JAINAM SATHWARA</h1>
+        <p>
+          -A passionate and dedicated junior web developer, driven by the
+          ever-evolving world of technology and its limitless possibilites.
+        </p>
+        <button>Contact Me</button>
+      </div>
+      <div class="contain-2">
+        <div class="card-item">
+          <img
+            width="100%"
+            height="100%"
+            src="./images/Passport_size_photo_Jainam.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+    <section class="sec-2">
+      <div class="contain-sec-2-left">
+        <div class="card-item">
+          <img
+            width="100%"
+            height="100%"
+            src="./images/Passport_size_photo_Jainam.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="contain-sec-2-right">
+        <p class="about">
+          <i class="fa-solid fa-arrow-right" style="color: #d61305"></i>About me
+        </p>
+        <h1>Who Am I</h1>
+        <p>
+          My name is Jainam Sathwara, and I am a possionate frontend web
+          developer. I have always been fascinated by the intresection of design
+          and techonlogy, and I am thrilled to be to bring my creative ideas to
+          life through coding. My primary focus is on forntend development,
+          where I excel in crafting beautiful user interfaces that are both
+          visually appealing and user-friendly. My technical skills include
+          proficiency in HTML, CSS, Javascript, and various frontend frameworks
+          such as React and Node.js. I am well-versed in responsive design
+          principles, ensuring that websites look greatand function seamlessly
+          across different devices and screen sizes. Continuously learning and
+          staying up-to-date with the latest trends and technologies is a
+          priority for me. I am always exploring new tools, frameworks, and
+          technique to enhance my skills and deliver cutting-edge solution to my
+          clients.
+        </p>
+        <div class="box">
+          <button>
+            <i class="fa-brands fa-html5" style="color: #eba205"></i
+            ><span class="ani">Html 5</span>
+          </button>
+          <button>
+            <i class="fa-brands fa-css3-alt" style="color: #005af5"></i
+            ><span class="ani">Css3</span>
+          </button>
+          <button>
+            <i class="fa-brands fa-js" style="color: #e0d910"></i
+            ><span class="ani">Javascript</span>
+          </button>
+          <button>
+            <i class="fa-brands fa-python" style="color: #ee00ff"></i
+            ><span class="ani">Python</span>
+          </button>
+          <button>
+            <i class="fa-brands fa-react" style="color: #8c00ff"></i
+            ><span class="ani">React.js</span>
+          </button>
+        </div>
+        <button class="download">
+          <a
+            style="text-decoration: none; color: white"
+            href="./Jainam_Resume.pdf.pdf"
+            download=""
+            >Download Resume</a
+          >
+        </button>
+      </div>
+    </section>
+    <section class="sec-3">
+      <p class="about">
+        <i class="fa-solid fa-arrow-right" style="color: #d61305"></i>My
+        Services
+      </p>
+      <h1>What Can I Do</h1>
+      <div class="box-01">
+        <div>
+          <i class="fa-solid fa-pen fa-2xl" style="color: #ff0000"></i>
+          <h3>Creative Design</h3>
+          <p>
+            Levering artistic elements and aesthetic principles to craft
+            visually appealing and engaging user experience
+          </p>
+        </div>
+        <div>
+          <i class="fa-solid fa-code fa-2xl" style="color: #ff0000"></i>
+          <h3>Clean Code</h3>
+          <p>
+            Writing code that is well-structured, readable, and maintainable. It
+            invovles following coding best practices.
+          </p>
+        </div>
+        <div>
+          <i class="fa-solid fa-laptop fa-2xl" style="color: #ff0000"></i>
+          <h3>User Interface</h3>
+          <p>
+            Creating intutive and user-friendly design that prioritize
+            usability, accessibility, and a seamless user experinces.
+          </p>
+        </div>
+        <div>
+          <i class="fa-solid fa-bag-shopping fa-2xl" style="color: #ff0000"></i>
+          <h3>User Experience</h3>
+          <p>
+            Understanding user behaviours, needs, and preferences to create
+            interfaces that are intutive, efficient, and enjoyable to use.
+          </p>
+        </div>
+        <div>
+          <i class="fa-solid fa-life-ring fa-2xl" style="color: #ff0000"></i>
+          <h3>Fast Support</h3>
+          <p>
+            Adressing ande resolving user-reported issues or inquiries related
+            to the website or application.
+          </p>
+        </div>
+        <div>
+          <i class="fa-solid fa-flag fa-2xl" style="color: #ff0000"></i>
+          <h3>Branding</h3>
+          <p>
+            Creating consistent and cohesive brand experiences through the use
+            of logos, color schemes, typography, and other branding assets.
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="contact" id="contact">
+        <h1>Lets work together on your next project</h1>
+        <p>
+          Collaoration is key! Lets join forces and combine our skills to tackle
+          your next project with a powerful synergy that guarantees success.
+        </p>
+      </div>
+      <div class="btn">
+        <button>Contact</button>
+      </div>
+    </footer>
+  </body>
+</html>
